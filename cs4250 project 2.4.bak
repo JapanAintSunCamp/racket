@@ -1,0 +1,26 @@
+#lang racket
+(define (membership atm a_list)
+  (cond
+       ((null? a_list) #f)
+       ((eq? atm (car a_list)) #t)
+       (else (membership atm (cdr a_list)))
+ ))
+
+
+(define (my_delete atm a_list)
+  (list
+
+   (if(>(length a_list) 1)
+      (if (eq? atm (car a_list)) (my_delete atm (cdr a_list)) (append (list (car a_list)) (my_delete atm (cdr a_list) )  ) ) 
+      ;case 1
+      (if(eq? atm (car a_list)) (list) (list (car a_list)) )
+      ;case 2
+      )
+      )
+   
+      
+)
+
+(define my_list (list 1 2 3 4 4 1 2 3 5 6 4))
+(define my_list2 (my_delete 4 my_list))
+my_list2
